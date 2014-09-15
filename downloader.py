@@ -51,7 +51,7 @@ def verify(message, signature_b64, pub_b64):
 
 
 def getMessages():
-  url = 'http://54.77.58.8?format=json'
+  url = 'http://54.77.58.8?format=json&page_size=500'
   r = requests.get(url)
   data = json.loads(r.text)
 
@@ -190,7 +190,7 @@ for msg in msgs:
     
 
 
-  Monitor.objects.create(
+  Monitor.objects.get_or_create(
     
     source=msg['source'],    
     contract_id=ff['contract_id'],
