@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'monitor',
+    "cronjobs",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -99,3 +100,5 @@ REST_FRAMEWORK = {
 
     }
 }
+
+
