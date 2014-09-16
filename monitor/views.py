@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from monitor.serializers import UserSerializer, GroupSerializer
-from monitor.models import Monitor
+from monitor.models import Monitor, Ping
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 
@@ -43,6 +43,13 @@ class MonitorList(generics.ListCreateAPIView):
     paginate_by_param = 'page_size'
     max_paginate_by = 100
 
+
+class PingList(generics.ListCreateAPIView):
+    queryset = Ping.objects.all()
+    serializer_class = PingSerializer
+    paginate_by = 10
+    paginate_by_param = 'page_size'
+    max_paginate_by = 100
 
 
 
