@@ -35,7 +35,7 @@ def fetch_code(custom_string="CODE_"):
 # Create your models here.
 class Monitor( models.Model ):
     """
-    Model for storing `messages`
+    Model for storing `full logs`
     """
 
     source = models.CharField( max_length = 255, blank=True)
@@ -50,6 +50,15 @@ class Monitor( models.Model ):
     comment = models.CharField( max_length = 255 )
     timestamp = models.DateTimeField(auto_now_add=True)
 
+# Create your models here.
+class Ping( models.Model ):
+    """
+    Model for storing `pings`
+    """
+
+    source = models.CharField( max_length = 255, blank=True)
+    published_time = models.IntegerField( max_length = 255 )
+    
 
     
 
