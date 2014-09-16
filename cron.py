@@ -192,7 +192,13 @@ def downloader():
 
 
 
-
+      ping, created = Ping.objects.get_or_create(source=msg['source'])
+      if  created:
+          created.update(published_time=msg['epoch']
+      else:
+          ping.update(published_time=msg['epoch']
+          
+      
       Monitor.objects.get_or_create(
 
         source=msg['source'],
