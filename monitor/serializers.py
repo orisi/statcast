@@ -29,7 +29,7 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ('url', 'name')
 
-from monitor.models import Monitor
+from monitor.models import Monitor, Ping
 
 
 #    source = models.CharField( max_length = 255, blank=True)
@@ -48,4 +48,10 @@ class MonitorSerializer( serializers.ModelSerializer ):
     class Meta:
         model = Monitor
         fields = ('source','contract_id','published_time','signature','operation','return_address','in_reply_to','locktime','message_id')
+
+class PingSerializer( serializers.ModelSerializer ):
+    class Meta:
+        model = Monitor
+        fields = ('source','published_time')
+
 
