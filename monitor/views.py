@@ -26,7 +26,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 from monitor.models import Monitor
-from monitor.serializers import MonitorSerializer
+from monitor.serializers import MonitorSerializer, PingSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
