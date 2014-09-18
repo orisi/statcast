@@ -50,7 +50,7 @@ def verify(message, signature_b64, pub_b64):
 
 
 def getMessages():
-  url = 'http://54.77.58.8?format=json&page_size=500'
+  url = 'http://54.77.58.8?format=json'
   r = requests.get(url)
   data = json.loads(r.text)
 
@@ -59,7 +59,7 @@ def getMessages():
     try:
       decoded_body = decode_data(req['body'])
       req['body'] = decoded_body
-      print decoded_body
+      #print decoded_body
       if not verify(req['body'], req['signature'], req['source']):
         continue
 
@@ -87,6 +87,11 @@ import cronjobs
 
 @cronjobs.register
 def downloader():
+    
+    
+    msgs = getMessages()['results']
+      
+    
     for msg in msgs:
 
       print "[ Source ]"
@@ -193,10 +198,14 @@ def downloader():
 
 
       ping, created = Ping.objects.get_or_create(source=msg['source'])
-      if  created:
-          created.update(published_time=msg['epoch']
-      else:
-          ping.update(published_time=msg['epoch']
+
+      #if created:
+      #  ping.update(published_time=msg['epoch'])
+      #Belse:
+      #B  print ping
+      #  ping.update(published_time=msg['epoch'])
+      
+      Ping.objects.filter(source=msg['source']).update(published_time=msg['epoch'])
           
       
       Monitor.objects.get_or_create(

@@ -31,6 +31,7 @@ urlpatterns_to_suffix = patterns('',
         url(r'^log/(?P<pk>[0-9]+)/$', views.MonitorDetail.as_view()),
         url(r'^logs/', views.MonitorList.as_view()),
         url(r'^last/', views.MonitorListLast.as_view()),
+        url(r'^ping/', views.PingList.as_view()),
 
          url(r'^$', views.MonitorList.as_view()),
        

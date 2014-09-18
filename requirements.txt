@@ -2,3 +2,4 @@ django
 djangorestframework
 pycrypto
 django-cronjobs
+django-cors-headers

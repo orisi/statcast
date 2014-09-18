@@ -57,7 +57,7 @@ class Ping( models.Model ):
     """
 
     source = models.CharField( max_length = 255, blank=True)
-    published_time = models.IntegerField( max_length = 255 )
+    published_time = models.IntegerField( max_length = 255, blank=True, null=True)
     
 
     
